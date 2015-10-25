@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-lg-6">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+        <div class="row list-group" ng-repeat='quiz in quizList.quizzes'>
+            <div class="col-xs-12 list-group-item">
+                <h4>
+                    <a ng-href='/#/player/{{quiz._id}}' )>{{quiz.title}}</a>
+                    <small rating-stars rating='quiz.rating'></small>
+                    <span class="badge pull-right badge-default" am-time-ago="quiz.added"></span>
+                </h4>
+                <p class="address">{{quiz.tagLine}}</p>
+
+                <p></p>
+                <span class="label label-info" ng-repeat='tag in quiz.tags' style='margin-right:4px;'>{{tag}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-4">
+        <p class="lead">
+            Want to test your knowledge or learn something new? Take a Quizzer quiz. Have a great idea for a quiz? Create your
+            own quiz, it's easy, but you must be a member. Sign up today.
+        </p>
+    </div>
+</div>

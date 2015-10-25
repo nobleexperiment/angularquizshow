@@ -1,0 +1,47 @@
+<div>
+    <div class="row page-header">
+        <div class="col-lg-12">
+            <h1>{{player.title}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-primary review-panel">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{player.index+1}} of {{player.total}}</h2>
+                    </div>
+                    <div class="panel-body review-container">
+                        <div>
+                            <ol> {{ player.current.question }}
+                                <li class="checkbox" ng-repeat='choice in player.current.choices'>
+                                    <label >
+                                        <input type='checkbox' value='{{choice.choice}}' ng-model='player.responses[$index]' ng-disabled="player.showAnswers">
+                                        {{choice.choice}}</label>
+                                    <span class="glyphicon glyphicon-ok " ng-class='(player.showAnswers && choice.isAnswer)? "":"hidden" '  aria-hidden="true"></span>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <a class="btn btn-default " ng-class="player.index == 0? 'disabled': ''" ng-click="player.previous()" >previous</a>
+                        <a class="btn btn-default " ng-class="player.index+1 == player.total? 'disabled': ''" ng-click="player.next()">next</a>
+                        <a class="btn btn-default " ng-click="player.score()">Score</a>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary review-panel" ng-show="player.showAnswers">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Summary</h2>
+                    </div>
+                    <div class="panel-body review-container">
+                        {{player.right}} out of {{player.total}} or {{(player.right / player.total) * 100 | number:2}}%
+                    </div>
+                    <div class="panel-footer">
+                        <a class="btn btn-default " ng-click="player.exit()" >Exit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

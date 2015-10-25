@@ -1,0 +1,39 @@
+doctype html
+html(ng-app='hello2')
+  head
+    meta(name='viewport', content='width=device-width,initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='/#/quiz') #{title}
+          button.navbar-toggle(type='button',toggle='collapse',data-target='#navbar-main')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #navbar-main.navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/#/about') About
+            li
+              a(href='/#/login') Login
+    .container
+      div(ui-view)
+      footer
+        .row
+          .col-xs-12
+            small &copy; Troy Miles 2015
+
+    script(src='/libs/jquery-1.11.3.min.js')
+    script(src='/libs/angular.js')
+    script(src='/libs/angular-ui-router.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/system/app.js')
+    script(src='/system/routes.js')
+    script(src='/quiz/quiz-service.js')
+    script(src='/quiz/quiz-controller.js')
+    script(src='/play/play-controller.js')
+    script(src='/about/about-controller.js')
